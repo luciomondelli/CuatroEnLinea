@@ -33,6 +33,15 @@ def dibujarTablero(tablero):
 				print(" %s " % celda, end = ' ')
 		print( )
 
-secuencia = [1, 2, 3, 4, 7, 4, 2]
-dibujarTablero(completarTableroEnOrden(secuencia, tableroVacio()))
+def columnaValida(secuencia):
+    for x in secuencia:
+        if x > 7 or x < 1:
+            return False
+    return True
+
+secuencia = [1, 2, 6, 2, 5, 4, 2]
+if columnaValida(secuencia) == False:
+	print("\nSecuencia de soltado de ficha en columna no valida")
+else:
+	dibujarTablero(completarTableroEnOrden(secuencia, tableroVacio()))
 
