@@ -26,12 +26,14 @@ def completarTableroEnOrden(secuencia, tablero):
 
 def dibujarTablero(tablero):
 	for fila in tablero:
+		print('|', end = " ")
 		for celda in fila:
 			if celda == 0:
 				print(" 0 ", end = ' ')
 			else:
 				print(" %s " % celda, end = ' ')
-		print( )
+		print('|')
+	print('+-----------------------------+')
 
 def columnaValida(secuencia):
     for x in secuencia:
@@ -53,13 +55,13 @@ def contenidoFila(nroFil, tablero):
 def Columnas(tablero):
 	columnas=[]
 	for x in range(7,0,-1):
-		columnas.append(contenidoColumna(x,tablero))
+		columnas.append(contenidoColumna(x,tablero)) #Esta función muestra las columnas de derecha a izquierda
 	return columnas
 
 def Filas(tablero):
 	filas=[]
 	for x in range(6,0,-1):
-		filas.append(contenidoFila(x,tablero))
+		filas.append(contenidoFila(x,tablero)) #Esta función muestra las filas de abajo para arriba
 	return filas
 
 
@@ -70,4 +72,3 @@ else:
 	tablero = completarTableroEnOrden(secuencia, tableroVacio())
 	dibujarTablero(tablero)
 
-print(Columnas(tablero))
