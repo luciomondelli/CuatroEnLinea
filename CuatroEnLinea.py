@@ -39,9 +39,35 @@ def columnaValida(secuencia):
             return False
     return True
 
+def contenidoColumna(nroCol, tablero):
+	columna = []
+	for fila in tablero:
+		celda = fila[nroCol - 1]
+		columna.append(celda)
+	return columna
+
+def contenidoFila(nroFil, tablero):
+	fila = tablero[nroFil-1]     
+	return fila 
+
+def Columnas(tablero):
+	columnas=[]
+	for x in range(7,0,-1):
+		columnas.append(contenidoColumna(x,tablero))
+	return columnas
+
+def Filas(tablero):
+	filas=[]
+	for x in range(6,0,-1):
+		filas.append(contenidoFila(x,tablero))
+	return filas
+
+
 secuencia = [1, 2, 6, 2, 5, 4, 2]
 if columnaValida(secuencia) == False:
 	print("\nSecuencia de soltado de ficha en columna no valida")
 else:
-	dibujarTablero(completarTableroEnOrden(secuencia, tableroVacio()))
+	tablero = completarTableroEnOrden(secuencia, tableroVacio())
+	dibujarTablero(tablero)
 
+print(Columnas(tablero))
